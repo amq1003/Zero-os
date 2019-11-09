@@ -1,7 +1,7 @@
 package zeroOS;
 
 public class PCB {
-	private String Request;     	//name of device requested
+	private String[] Request;     	//name of device requested
 	private String filename;    	//name of file to be used
 	private int length;         	//length of file used
 	private int processNumber;  	//number of the process
@@ -10,18 +10,22 @@ public class PCB {
 	private LinkedList subcommands; //list of commands used
 	private String status;      	//status(waiting, ready..)
 	private Node nextProcess;		//pointer to next process in the list
-	private int releaseTime;
-	
+	private long releaseTime;		//the time the process was released 
+	DeviceFile stuff= new DeviceFile();
 	
 	public PCB(int cycles,int procount) 
 	{
 	    this.cycles=cycles;
 	    this.programCounter=procount;
-	    this.setStatus("zero , idle");
+	    this.setStatus("idle");
 	}
-	public PCB() {
-		// TODO Auto-generated constructor stub
+	
+	public String[] deviceRequested() 
+	{
+		Request = stuff.getPhysicalName();
+		return null;
 	}
+	
 	public int cyclesgetter() 
 	{
 		return this.cycles;
@@ -30,6 +34,26 @@ public class PCB {
 	public int processgetter() 
 	{
 		return this.processNumber;
+	}
+	
+	public String getStatus() 
+	{
+		return status;
+	}
+
+	public void setStatus(String status) 
+	{
+		this.status = status;
+	}
+	
+	public void setReleaseTime() 
+	{
+		this.releaseTime=System.currentTimeMillis();
+	}
+	
+	public long getReleaseTime()
+	{
+		return this.releaseTime;
 	}
 	
  	public String printReady() 
@@ -58,11 +82,12 @@ public class PCB {
 	{
 		if(this.getStatus()=="complete") 
 		{
-			System.out.println(this.cycles +" "+ this.filename + " " + this.length + " " + this.processNumber + " " + subcommands);
+			System.out.println(this.cycles +" "+ this.filename + " " + this.length + " " + this.processNumber + " " + subcommands +
+					" " + this.releaseTime);
 		}
 		else
 		{
-			System.out.println("NO COMPLETE PROCESSES");
+			System.out.println("NO COMPLETED PROCESSES");
 		}
 	}
 	
@@ -81,11 +106,5 @@ public class PCB {
 			System.out.println("NO READY OR WAITING PROCESSES");
 		}
 	}
-	public String getStatus() {
-		return status;
-	}
-	public String setStatus(String status) {
-		this.status = status;
-		return status;
-	}
+
 }

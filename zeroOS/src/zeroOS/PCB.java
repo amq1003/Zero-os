@@ -10,6 +10,8 @@ public class PCB {
 	private LinkedList subcommands; //list of commands used
 	private String status;      	//status(waiting, ready..)
 	private Node nextProcess;		//pointer to next process in the list
+	private int releaseTime;
+	
 	
 	public PCB(int cycles,int procount) 
 	{

@@ -1,42 +1,22 @@
 package zeroOS;
 
 public class Node {
-
 	private Node next;
 	private Object data;
-	
-	public Node(Node next, Object data) {
-		
-		this.next = next;
-		this.data = data;
-		
-	}
-	
-	public Node( Object data) {
-		
-		this.data = data;
-		this.next= null;
-		
-	}
-	
-	public void setNext(Node node)//setting new value for next node
-	{	
-        next = node;
-    }
-
-	public Node next() {
+	public Node getNext() 
+	{
 		return next;
 	}
-
-	   public void setValue(Object value)
-	    {
-	        data = value;
-	    }
-
-	public Object value() {
-		// TODO Auto-generated method stub
+	public void setNext(Node next) 
+	{
+		this.next = next;
+	}
+	public Object getData() 
+	{
 		return data;
 	}
-	
-
+	public void setData(Object data) 
+	{
+		this.data = data;
+	}
 }

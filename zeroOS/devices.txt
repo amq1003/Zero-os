@@ -1,0 +1,46 @@
+Location 1:
+Name: Hard Disk 1
+Access Name: C
+Status: Idle
+Processing Speed: 125 cps
+Location 2:
+Name: Hard Disk 1
+Access Name: D
+Status: Idle
+Processing Speed: 150 cps
+Location 3:
+Name: Display 1
+Access Name: DIS1
+Status: Idle
+Processing Speed: 200 cps
+Location 4:
+Name: Printer
+Access Name: LPR
+Status: Idle
+Processing Speed: 175 cps
+Location 5:
+Name: NULL
+Access Name: 
+Status: 
+Processing Speed: 
+Location 6:
+Name: Hard Disk 1
+Access Name: C
+Status: Idle
+Processing Speed: 125 cps
+Location 7:
+Name: Hard Disk 1
+Access Name: D
+Status: Idle
+Processing Speed: 150 cps
+Location 8:
+Name: Display 1
+Access Name: DIS1
+Status: Idle
+Processing Speed: 200 cps
+Location 9:
+Name: Printer
+Access Name: LPR
+Status: Idle
+Processing Speed: 175 cps
+ 

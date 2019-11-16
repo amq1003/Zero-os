@@ -11,21 +11,24 @@ public class PCB {
 	private String status;      	//status(waiting, ready..)
 	private Node nextProcess;		//pointer to next process in the list
 	private long releaseTime;		//the time the process was released 
-	DeviceFile stuff= new DeviceFile();
 	
-	public PCB(int cycles,int procount) 
+	public PCB(int cycles,int procount,String stat) 
 	{
 	    this.cycles=cycles;
 	    this.programCounter=procount;
-	    this.setStatus("idle");
+	    this.setStatus(stat);
 	}
 	
-	public String[] deviceRequested() 
+
+
+	public PCB(int cycles, int cyclesLeft) 
 	{
-		Request = stuff.getPhysicalName();
-		return null;
+		this.cycles=cycles;
+	    this.programCounter=cyclesLeft;
 	}
-	
+
+
+
 	public int cyclesgetter() 
 	{
 		return this.cycles;

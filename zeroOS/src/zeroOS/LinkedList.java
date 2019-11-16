@@ -1,57 +1,93 @@
 package zeroOS;
 
-public class LinkedList { 
-	  
-    Node head; // head of list
-    private int size = 0; //the size of the list
-    private int count=0;
-    
-    public LinkedList (Node head,  int size){
-    	
-    	this.head = head;
-    	this.size = size;
-    	
-    }
-    
-    public void addNode(Node data) //adding a new node to linked list
-    {	
-    	Node temp = new Node(data,null),finger = head;
-    	if (head == null) {
-    		head = temp;
-    		count++;
-    	}
-    	else {
-    		while (finger.next()!=null) {
-    			finger = finger.next();
-    		}
-    		finger.setNext(temp);
-    		count++;
-    	}
-    }
+public class LinkedList {
 
-    
-    public Object removeLast()
-    {
-    	Node finger = head,prev = finger;
-    	if (finger==null) {
-    		return null;
-    	}
-    	else if (finger.next() == null) {
-    		head = null;
-    		count--;
-    		return prev.value();
-    	}
-    	else {
-    		while (finger.next() != null) {
-    			prev = finger;
-    			finger = finger.next();
-    		}
-    		prev.setNext(null);
-    		count--;
-    		return finger.value();
-    	}
-    }
-    
-    
+	
+	Node head;
+	
+	public void insert(Object data) 
+	{
+		Node node=new Node();
+		node.setData(data);
+		node.setNext(null);
+		
+		if(head==null) 
+		{
+			head=node;
+		}
+		else 
+		{
+			Node n=head;
+			while(n.getNext()!=null) 
+			{
+				n=n.getNext();
+			}
+			n.setNext(node);
+		}
+	}
+	
+	
+	public void show()
+	{
+		Node node = head;
+		
+		while(node.getNext()!=null)
+		{
+			System.out.println(node.getData());
+			node = node.getNext();
+		}
+		System.out.println(node.getData());
+	}
+	
+	public void insertAtStart(Object data) 
+	{
+		Node node=new Node();
+		node.setData(data);
+		node.setNext(null);
+		node.setNext(head);
+		head=node;
+	}
+	
+	public void deleteAt(int index) 
+	{
+		if(index==0) 
+		{
+			head=head.getNext();
+		}
+		else 
+		{
+			Node n=head;
+			Node n1=null;
+			for(int i=0;i<index-1;i++) 
+			{
+				n=n.getNext();
+			}
+			n1=n.getNext();
+			n.setNext(n1.getNext());
+			n1=null;
+		}
+	}
+	
+	public void insertAt(int index,Object data) 
+	{
+		Node node=new Node();
+		node.setData(data);
+		node.setNext(null);
+		
+		if(index==0) 
+		{
+			insertAtStart(data);
+		}
+		else 
+		{
+			Node n=head;
+			for(int i=0;i<index-1;i++) 
+			{
+				n=n.getNext();
+			}
+			node.setNext(n.getNext());
+			n.setNext(node);
+		}
+	}
+	
 }
-
